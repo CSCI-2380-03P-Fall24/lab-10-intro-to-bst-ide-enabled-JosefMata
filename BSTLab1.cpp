@@ -24,7 +24,7 @@ class Node {
 // {13, 0, 7, 6, 21, 15, -2, 12, 99, 18, 19, -1}
 Node* createTree() {
 	// root
-	Node* root = newNode(13);
+	Node* root = new Node(13);
 
 	// level 1 (children of root)
 	root->left = new Node(0);
@@ -64,12 +64,11 @@ Node* createTree() {
 bool searchTree(int target, Node* root) {
 	// Base cases
 	if (!root) return false;
-	if (root->key == target) return true;
+	if (target == root->key) return true;
 
 	// General case
 	if (target < root->key)
 		return searchTree(target, root->left);
-	else
 		return searchTree(target, root->right);
 	
 }
